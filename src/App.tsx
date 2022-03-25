@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { CounterContextProvider } from './contexts/Counter'
 import { CounterOne, CounterTwo } from './components'
 
 export const App: React.FC = () => {
@@ -14,13 +15,13 @@ export const App: React.FC = () => {
   }, [])
 
   return (
-    <div>
+    <CounterContextProvider>
       <h1>Counters</h1>
       <p>Total counters is: {total}</p>
 
       <CounterOne onIncrement={incrementTotal} onDecrement={decrementTotal} />
       <CounterTwo onIncrement={incrementTotal} onDecrement={decrementTotal} />
-    </div>
+    </CounterContextProvider>
   )
 }
 
