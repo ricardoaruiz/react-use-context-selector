@@ -1,26 +1,25 @@
 import React from 'react'
 
-import { CounterOneProps } from './types'
+import { useCounter } from '../../contexts/Counter'
 
 import * as S from './styles'
 
-const CounterOne: React.VFC<CounterOneProps> = ({
-  onIncrement,
-  onDecrement,
-}) => {
-  const [counter, setCounter] = React.useState(0)
+const CounterOne: React.VFC = () => {
+  const {
+    counterOne: counter,
+    incrementCounterOne,
+    decrementCounterOne,
+  } = useCounter()
 
   const handleIncrementButtonClick = React.useCallback(() => {
-    setCounter((state) => state + 1)
-    onIncrement()
-  }, [onIncrement])
+    incrementCounterOne()
+  }, [incrementCounterOne])
 
   const handleDecrementButtonClick = React.useCallback(() => {
     if (counter > 0) {
-      onDecrement()
+      decrementCounterOne()
     }
-    setCounter((state) => (state > 0 ? state - 1 : state))
-  }, [counter, onDecrement])
+  }, [counter, decrementCounterOne])
 
   return (
     <S.Wrapper>

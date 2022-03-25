@@ -1,7 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import './index.scss'
+import { CounterContextProvider } from './contexts/Counter'
 import App from './App'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import './index.scss'
+
+ReactDOM.render(
+  <CounterContextProvider>
+    <App />
+  </CounterContextProvider>,
+  document.getElementById('root')
+)

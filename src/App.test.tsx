@@ -1,19 +1,19 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { renderWithContext, screen } from './utils/test'
 
 import App from './App'
 import userEvent from '@testing-library/user-event'
 
 describe('<App />', () => {
   it('should be render correctly', () => {
-    render(<App />)
+    renderWithContext(<App />)
     expect(
       screen.getByRole('heading', { name: /counters$/i })
     ).toBeInTheDocument()
   })
 
   it('shoud be start total counter is zero', () => {
-    render(<App />)
+    renderWithContext(<App />)
 
     const totalCounter = screen.getByText(/total counters is: 0/i)
     expect(totalCounter).toBeInTheDocument()
@@ -26,7 +26,7 @@ describe('<App />', () => {
   })
 
   it('should be update total counters when counter one is incremented', () => {
-    render(<App />)
+    renderWithContext(<App />)
 
     const totalCounter = screen.getByText(/total counters is: 0/i)
     expect(totalCounter).toBeInTheDocument()
@@ -43,7 +43,7 @@ describe('<App />', () => {
   })
 
   it('should be update total counters when counter one is decremented', () => {
-    render(<App />)
+    renderWithContext(<App />)
 
     const totalCounter = screen.getByText(/total counters is: 0/i)
     expect(totalCounter).toBeInTheDocument()
@@ -69,7 +69,7 @@ describe('<App />', () => {
   })
 
   it('should be update total counters when counter two is incremented', () => {
-    render(<App />)
+    renderWithContext(<App />)
 
     const totalCounter = screen.getByText(/total counters is: 0/i)
     expect(totalCounter).toBeInTheDocument()
@@ -86,7 +86,7 @@ describe('<App />', () => {
   })
 
   it('should be update total counters when counter two is decremented', () => {
-    render(<App />)
+    renderWithContext(<App />)
 
     const totalCounter = screen.getByText(/total counters is: 0/i)
     expect(totalCounter).toBeInTheDocument()
@@ -112,7 +112,7 @@ describe('<App />', () => {
   })
 
   it('should be update total counters when counter one and counter two is changed', () => {
-    render(<App />)
+    renderWithContext(<App />)
 
     const totalCounter = screen.getByText(/total counters is: 0/i)
     expect(totalCounter).toBeInTheDocument()

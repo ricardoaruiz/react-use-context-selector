@@ -1,26 +1,25 @@
 import React from 'react'
 
-import { CounterTwoProps } from './types'
+import { useCounter } from '../../contexts/Counter'
 
 import * as S from './styles'
 
-const CounterTwo: React.VFC<CounterTwoProps> = ({
-  onIncrement,
-  onDecrement,
-}) => {
-  const [counter, setCounter] = React.useState(0)
+const CounterTwo: React.VFC = () => {
+  const {
+    counterTwo: counter,
+    incrementCounterTwo,
+    decrementCounterTwo,
+  } = useCounter()
 
   const handleIncrementButtonClick = React.useCallback(() => {
-    setCounter((state) => state + 1)
-    onIncrement()
-  }, [onIncrement])
+    incrementCounterTwo()
+  }, [incrementCounterTwo])
 
   const handleDecrementButtonClick = React.useCallback(() => {
     if (counter > 0) {
-      onDecrement()
+      decrementCounterTwo()
     }
-    setCounter((state) => (state > 0 ? state - 1 : state))
-  }, [counter, onDecrement])
+  }, [counter, decrementCounterTwo])
 
   return (
     <S.Wrapper>
