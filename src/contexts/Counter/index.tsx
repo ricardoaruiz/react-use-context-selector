@@ -1,7 +1,8 @@
 import React from 'react'
+import { createContext } from 'use-context-selector'
 import { CounterContextValues } from './types'
 
-const CounterContext = React.createContext({} as CounterContextValues)
+export const CounterContext = createContext({} as CounterContextValues)
 
 export const CounterContextProvider: React.FC = ({ children }) => {
   const [counterOne, setCounterOne] = React.useState<number>(0)
@@ -35,14 +36,4 @@ export const CounterContextProvider: React.FC = ({ children }) => {
   return (
     <CounterContext.Provider value={values}>{children}</CounterContext.Provider>
   )
-}
-
-export const useCounter = () => {
-  const context = React.useContext(CounterContext)
-
-  if (!context) {
-    throw new Error('userCounter must be use within CounterContextProvider')
-  }
-
-  return context
 }
