@@ -2,6 +2,8 @@ import React from 'react'
 
 import { CounterOneProps } from './types'
 
+import * as S from './styles'
+
 export const CounterOne: React.VFC<CounterOneProps> = ({
   onIncrement,
   onDecrement,
@@ -21,16 +23,18 @@ export const CounterOne: React.VFC<CounterOneProps> = ({
   }, [counter, onDecrement])
 
   return (
-    <>
-      <h1>Counter One</h1>
+    <S.Wrapper>
+      <S.Title>Counter One</S.Title>
 
-      <button type="button" onClick={handleDecrementButtonClick}>
-        Decrement Counter One
-      </button>
-      <p>Counter one: {counter}</p>
-      <button type="button" onClick={handleIncrementButtonClick}>
-        Increment Counter One
-      </button>
-    </>
+      <S.Content>
+        <S.Button type="button" onClick={handleDecrementButtonClick}>
+          Decrement Counter One
+        </S.Button>
+        <S.Counter>Counter one: {counter}</S.Counter>
+        <S.Button type="button" onClick={handleIncrementButtonClick}>
+          Increment Counter One
+        </S.Button>
+      </S.Content>
+    </S.Wrapper>
   )
 }

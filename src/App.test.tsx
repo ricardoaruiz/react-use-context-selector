@@ -8,7 +8,7 @@ describe('<App />', () => {
   it('should be render correctly', () => {
     render(<App />)
     expect(
-      screen.getByRole('heading', { name: /counters/i })
+      screen.getByRole('heading', { name: /counters$/i })
     ).toBeInTheDocument()
   })
 
