@@ -18,17 +18,15 @@ export const App: React.FC = () => {
   )
 
   return (
-    <>
-      <S.Container>
-        <S.Header>
-          <S.Title>Counters</S.Title>
-          <S.Total>Total counters is: {counterOne + counterTwo}</S.Total>
-        </S.Header>
+    <S.Container>
+      <S.Header>
+        <S.Title>Counters</S.Title>
+        <S.Total>Total counters is: {counterOne + counterTwo}</S.Total>
+      </S.Header>
 
-        <CounterOne />
-        <CounterTwo />
-      </S.Container>
-    </>
+      <CounterOne />
+      <CounterTwo />
+    </S.Container>
   )
 }
 
