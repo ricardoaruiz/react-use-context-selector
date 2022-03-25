@@ -1,15 +1,16 @@
 module.exports = {
-    testEnvironment: 'jsdom',
-    testPathIgnorePatterns: ['/node_modules/', '/.next/'],
-    collectCoverage: true,
-    collectCoverageFrom: ['src/**/*.js(x)'],
-    setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
-    
-    moduleNameMapper: {
-      '^.+\\.svg$': 'jest-svg-transformer',
-      '\\.(css|scss|sass)$': 'identity-obj-proxy'
-    },
-    transform: {
-      '^.+\\.[jt]sx?$': 'babel-jest'
-    },
-  }
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.ts(x)'],
+  setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
+  moduleNameMapper: {
+    '\\.(scss|sass)$': 'identity-obj-proxy',
+    '\\.svg': '<rootDir>/__mocks__/svg.js',
+  },
+  transform: {
+    '^.+\\.[jt]sx?$': 'babel-jest',
+    '.+\\.(png|jpg|jpeg)$': 'jest-transform-stub',
+  },
+}

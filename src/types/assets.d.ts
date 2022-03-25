@@ -1,18 +1,24 @@
-declare module '*.svg' {
-  import React = require('react')
-  export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>
-  const src: string
-  export default src
+/* eslint-disable @typescript-eslint/no-explicit-any */
+declare module '*.png' {
+  const value: any
+  export = value
 }
 
 declare module '*.jpg' {
-  const content: string
-  export default content
+  const value: any
+  export = value
 }
 
-declare module '*.png' {
-  const content: string
-  export default content
+declare module '*.gif' {
+  const value: any
+  export = value
+}
+
+declare module '*.svg' {
+  import React = require('react')
+  export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>
+  const src: string
+  export default src
 }
 
 declare module '*.json' {
