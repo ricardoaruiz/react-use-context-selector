@@ -4,7 +4,7 @@ import { CounterOneProps } from './types'
 
 import * as S from './styles'
 
-export const CounterOne: React.VFC<CounterOneProps> = ({
+const CounterOne: React.VFC<CounterOneProps> = ({
   onIncrement,
   onDecrement,
 }) => {
@@ -38,3 +38,6 @@ export const CounterOne: React.VFC<CounterOneProps> = ({
     </S.Wrapper>
   )
 }
+
+const MemoizedCounterOne = React.memo(CounterOne)
+export { MemoizedCounterOne as CounterOne }

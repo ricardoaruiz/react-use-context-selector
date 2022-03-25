@@ -12,7 +12,7 @@ const actions: CounterOneProps = {
   onDecrement: mockedOnDecrement,
 }
 
-describe('<CounterOne />', () => {
+describe('<CounterOne/>', () => {
   beforeEach(() => {
     mockedOnIncrement.mockClear()
     mockedOnDecrement.mockClear()
