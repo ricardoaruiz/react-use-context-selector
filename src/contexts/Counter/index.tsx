@@ -1,5 +1,5 @@
 import React from 'react'
-import { createContext } from 'use-context-selector'
+import { createContext, useContextSelector } from 'use-context-selector'
 import { CounterContextValues } from './types'
 
 export const CounterContext = createContext({} as CounterContextValues)
@@ -36,4 +36,46 @@ export const CounterContextProvider: React.FC = ({ children }) => {
   return (
     <CounterContext.Provider value={values}>{children}</CounterContext.Provider>
   )
+}
+
+export const useCounterOne = () => {
+  const counterOne = useContextSelector(
+    CounterContext,
+    (counters) => counters.counterOne
+  )
+  const incrementCounterOne = useContextSelector(
+    CounterContext,
+    (counters) => counters.incrementCounterOne
+  )
+  const decrementCounterOne = useContextSelector(
+    CounterContext,
+    (counters) => counters.decrementCounterOne
+  )
+
+  return {
+    counterOne,
+    incrementCounterOne,
+    decrementCounterOne,
+  }
+}
+
+export const useCounterTwo = () => {
+  const counterTwo = useContextSelector(
+    CounterContext,
+    (counters) => counters.counterTwo
+  )
+  const incrementCounterTwo = useContextSelector(
+    CounterContext,
+    (counters) => counters.incrementCounterTwo
+  )
+  const decrementCounterTwo = useContextSelector(
+    CounterContext,
+    (counters) => counters.decrementCounterTwo
+  )
+
+  return {
+    counterTwo,
+    incrementCounterTwo,
+    decrementCounterTwo,
+  }
 }

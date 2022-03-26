@@ -1,21 +1,14 @@
 import React from 'react'
 
-import { useContextSelector } from 'use-context-selector'
-import { CounterContext } from './contexts/Counter'
+import { useCounterOne, useCounterTwo } from './contexts/Counter'
 
 import { CounterOne, CounterTwo } from './components'
 
 import * as S from './App.styles'
 
 export const App: React.FC = () => {
-  const counterOne = useContextSelector(
-    CounterContext,
-    (state) => state.counterOne
-  )
-  const counterTwo = useContextSelector(
-    CounterContext,
-    (state) => state.counterTwo
-  )
+  const { counterOne } = useCounterOne()
+  const { counterTwo } = useCounterTwo()
 
   return (
     <S.Container>

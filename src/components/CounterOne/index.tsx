@@ -1,25 +1,17 @@
 import React from 'react'
 
-import { useContextSelector } from 'use-context-selector'
-import { CounterContext } from '../../contexts/Counter'
+// import { useContextSelector } from 'use-context-selector'
+// import { CounterContext } from '../../contexts/Counter'
+import { useCounterOne } from '../../contexts/Counter'
 
 import * as S from './styles'
 
 const CounterOne: React.VFC = () => {
-  const counter = useContextSelector(
-    CounterContext,
-    (state) => state.counterOne
-  )
-
-  const incrementCounterOne = useContextSelector(
-    CounterContext,
-    (state) => state.incrementCounterOne
-  )
-
-  const decrementCounterOne = useContextSelector(
-    CounterContext,
-    (state) => state.decrementCounterOne
-  )
+  const {
+    counterOne: counter,
+    incrementCounterOne,
+    decrementCounterOne,
+  } = useCounterOne()
 
   const handleIncrementButtonClick = React.useCallback(() => {
     incrementCounterOne()
