@@ -1,7 +1,5 @@
 import React from 'react'
 
-// import { useContextSelector } from 'use-context-selector'
-// import { CounterContext } from '../../contexts/Counter'
 import { useCounterOne } from '../../contexts/Counter'
 
 import * as S from './styles'
